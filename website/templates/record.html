@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<h1>The Customer Record: 
+    </h1>
+
+
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-4">
+        <img src="https://picsum.photos/200/430" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-8">
+        <div class="card-body">
+          <h5 class="card-title"> 
+            {{customer_record.first_name}}
+            {{customer_record.last_name}}</h5>
+          <p class="card-text"><strong>Email: </strong>{{customer_record.email}}</p>
+          <p class="card-text"><strong>Phone: </strong>{{customer_record.phone}}</p>
+          <p class="card-text"><strong>Address </strong>{{customer_record.address}}</p>
+          <p class="card-text"><strong>City: </strong>{{customer_record.city}}</p>
+          <p class="card-text"><strong>State: </strong>{{customer_record.state}}</p>
+          <p class="card-text"><strong>Zipcode: </strong>{{customer_record.zipcode}}</p>
+          <p class="card-text"><strong>ID: </strong> {{customer_record.id}}</p>
+          <p class="card-text"><small class="text-body-secondary">Last updated {{customer_record.created_at}}</small></p>
+        </div>
+      </div>
+    </div>
+  </div>
+  <a href="{% url 'home' %}" class="btn btn-warning">Go back</a>
+  <a href="{% url 'delete_record' customer_record.id %}" class="btn btn-danger">Delete Record</a>
+  <a href="{% url 'update_record' customer_record.id %}" class="btn btn-primary">Update Record</a>
+  {% endblock %}
